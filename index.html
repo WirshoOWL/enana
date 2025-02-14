@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un regalo para ti</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    p {
+      color: #555;
+      font-size: 20px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #1e3c72;
+      font-weight: bold;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .links a {
+      color: #ff0000;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #2a5298;
+    }
+
+    /* Elementos decorativos */
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: sparkle 3s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.5); opacity: 1; }
+    }
+
+    /* Estrellas y destellos en el fondo */
+    .star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+    .star:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+    .star:nth-child(3) { top: 50%; left: 10%; animation-delay: 2s; }
+    .star:nth-child(4) { top: 70%; left: 90%; animation-delay: 3s; }
+    .star:nth-child(5) { top: 90%; left: 50%; animation-delay: 4s; }
+
+    .sparkle:nth-child(6) { top: 15%; left: 50%; animation-delay: 0.5s; }
+    .sparkle:nth-child(7) { top: 40%; left: 70%; animation-delay: 1.5s; }
+    .sparkle:nth-child(8) { top: 60%; left: 30%; animation-delay: 2.5s; }
+    .sparkle:nth-child(9) { top: 85%; left: 60%; animation-delay: 3.5s; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Un regalo para ti</h1>
+    <p>
+      Cuando fuimos novios por casi 4 meses, fue suficiente para que fueras parte importante de mi vida.<br>
+      Este pequeño regalo es para recordarte lo especial que fuiste y sigues siendo para mí.<br>
+      Espero que te guste y que lo guardes como un lindo recuerdo.<br>
+      Con cariño, tu mejor <span class="highlight">EX-NOVIO</span>. ❤️
+    </p>
+
+    <!-- Enlaces a las otras páginas -->
+    <div class="links">
+      <a href="siono.html">Te pregunto</a>
+      <a href="corazon.html">Un corazón que late por ti</a>
+      <a href="playa.html">Piensalo</a>
+    </div>
+  </div>
+
+  <!-- Estrellas y destellos en el fondo -->
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+  <div class="sparkle"></div>
+</body>
+</html>

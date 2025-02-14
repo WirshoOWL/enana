@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Mi ex me extraña?</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(45deg, #ff7eb9, #ff758c, #ff7eb9);
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    #si-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #no-btn {
+      background-color: #f44336;
+      color: white;
+      position: relative;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+      display: none;
+    }
+
+    /* Animaciones para el botón "No" */
+    @keyframes mover1 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(50px, -50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover2 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-50px, 50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover3 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(100px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover4 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-100px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover5 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(0, 100px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover6 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(0, -100px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover7 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(50px, 50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover8 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-50px, -50px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover9 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(75px, -75px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover10 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-75px, 75px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover11 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(120px, -30px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover12 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-120px, 30px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover13 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(30px, 120px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover14 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-30px, -120px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover15 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(90px, 90px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover16 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-90px, -90px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover17 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(60px, -120px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover18 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-60px, 120px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover19 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(150px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+
+    @keyframes mover20 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(-150px, 0); }
+      100% { transform: translate(0, 0); }
+    }
+
+    /* Emojis flotantes */
+    .floating-emoji {
+      position: absolute;
+      font-size: 24px;
+      z-index: 1;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¿Mi ex me extraña?</h1>
+    <div class="buttons">
+      <button id="si-btn">Sí</button>
+      <button id="no-btn">No</button>
+    </div>
+    <div id="mensaje">Todos los días te pienso aunque sea un poco.</div>
+  </div>
+
+  <script>
+    // Obtener elementos del DOM
+    const siBtn = document.getElementById("si-btn");
+    const noBtn = document.getElementById("no-btn");
+    const mensaje = document.getElementById("mensaje");
+
+    // Lista de animaciones para el botón "No"
+    const animaciones = [
+      "mover1", "mover2", "mover3", "mover4", "mover5",
+      "mover6", "mover7", "mover8", "mover9", "mover10",
+      "mover11", "mover12", "mover13", "mover14", "mover15",
+      "mover16", "mover17", "mover18", "mover19", "mover20"
+    ];
+
+    // Función para mover el botón "No" con una animación aleatoria
+    noBtn.addEventListener("mouseover", () => {
+      const animacionAleatoria = animaciones[Math.floor(Math.random() * animaciones.length)];
+      noBtn.style.animation = `${animacionAleatoria} 0.5s ease`;
+    });
+
+    noBtn.addEventListener("animationend", () => {
+      noBtn.style.animation = "";
+    });
+
+    // Función para mostrar el mensaje al hacer clic en "Sí"
+    siBtn.addEventListener("click", () => {
+      mensaje.style.display = "block";
+    });
+
+    // Emojis de sorpresa y misterio
+    const emojis = ["😮", "😲", "🤔", "🕵️", "😳", "🧐", "🤨", "😏"];
+
+    // Función para crear emojis flotantes
+    function createFloatingEmoji() {
+      const emoji = document.createElement("div");
+      emoji.classList.add("floating-emoji");
+      emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * window.innerWidth + "px";
+      emoji.style.fontSize = Math.random() * 30 + 20 + "px";
+      emoji.style.animationDuration = Math.random() * 5 + 3 + "s";
+      document.body.appendChild(emoji);
+
+      // Eliminar el emoji después de que termine la animación
+      setTimeout(() => {
+        emoji.remove();
+      }, 8000);
+    }
+
+    // Crear emojis flotantes cada 500ms
+    setInterval(createFloatingEmoji, 500);
+  </script>
+</body>
+</html>

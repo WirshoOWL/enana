@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación a la playa</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(180deg, #87CEEB, #00BFFF);
+      font-family: 'Georgia', serif;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 32px;
+    }
+
+    p {
+      color: #555;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .deadline {
+      font-size: 18px;
+      color: #777;
+      margin-top: 20px;
+    }
+
+    /* Elementos de la playa */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%2300BFFF" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,181.3C672,181,768,139,864,128C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') repeat-x;
+      animation: wave 10s linear infinite;
+    }
+
+    @keyframes wave {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .palm-tree {
+      position: absolute;
+      bottom: 100px;
+      right: 20px;
+      font-size: 100px;
+      z-index: 1;
+    }
+
+    .sun {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 80px;
+      z-index: 1;
+      animation: sun-glow 2s infinite alternate;
+    }
+
+    @keyframes sun-glow {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¡Aún tienes tu puesto para la playa!</h1>
+    <p>
+      Hola, aún tengo tu puesto reservado para la playa. 🌊☀️<br>
+      Me gustaría que fueras, quiero que vayas.<br>
+      <strong>Tienes hasta el 26 de febrero para decidir.</strong>
+    </p>
+    <p class="deadline">Espero tu respuesta. 😊</p>
+  </div>
+
+  <!-- Elementos de la playa -->
+  <div class="wave"></div>
+  <div class="palm-tree">🌴</div>
+  <div class="sun">☀️</div>
+</body>
+</html>

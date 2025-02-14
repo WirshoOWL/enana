@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corazón grande con "I love you" dentro</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(45deg, #ff7eb9, #ff758c, #ff7eb9);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .heart {
+      width: 150px; /* Corazón más grande */
+      height: 135px; /* Corazón más grande */
+      position: relative;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 78px; /* Ajustado para el corazón más grande */
+      height: 120px; /* Ajustado para el corazón más grande */
+      background: red;
+      border-radius: 75px 75px 0 0; /* Ajustado para el corazón más grande */
+    }
+
+    .heart::before {
+      left: 75px; /* Ajustado para el corazón más grande */
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .heart-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      color: white;
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      z-index: 3;
+      pointer-events: none; /* Evita que el texto interfiera con el corazón */
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: white;
+      font-family: 'Georgia', serif;
+      animation: fade 3s infinite;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    @keyframes fade {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 20px;
+      z-index: 1;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(-100vh);
+      }
+    }
+
+    /* Estrellas parpadeantes */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {
+        opacity: 0.5;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Destellos románticos */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      animation: sparkle 3s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart">
+      <div class="heart-text">I love you</div>
+    </div>
+    <div class="message">Siempre estaré para ti</div>
+  </div>
+
+  <script>
+    // Función para crear corazones flotantes
+    function createFloatingHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("floating-heart");
+      heart.innerHTML = "❤";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.fontSize = Math.random() * 30 + 10 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(heart);
+
+      // Eliminar el corazón después de que termine la animación
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // Función para crear estrellas parpadeantes
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.animationDuration = Math.random() * 2 + 1 + "s";
+      document.body.appendChild(star);
+
+      // Eliminar la estrella después de un tiempo
+      setTimeout(() => {
+        star.remove();
+      }, 5000);
+    }
+
+    // Función para crear destellos románticos
+    function createSparkle() {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.style.top = Math.random() * window.innerHeight + "px";
+      sparkle.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(sparkle);
+
+      // Eliminar el destello después de un tiempo
+      setTimeout(() => {
+        sparkle.remove();
+      }, 5000);
+    }
+
+    // Crear corazones flotantes cada 500ms
+    setInterval(createFloatingHeart, 500);
+
+    // Crear estrellas parpadeantes cada 300ms
+    setInterval(createStar, 300);
+
+    // Crear destellos románticos cada 700ms
+    setInterval(createSparkle, 700);
+  </script>
+</body>
+</html>
